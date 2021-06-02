@@ -16,11 +16,11 @@ const App = () => (
     tabBarOptions={tabBarStyle}
   >
     <BottomTab.Screen
-      name="home"
+      name="Principal"
       component={Home}
     />
     <BottomTab.Screen
-      name="favorite"
+      name="Favoritas"
       component={Favorite}
     />
   </BottomTab.Navigator>

@@ -52,6 +52,7 @@ export const AlbumProvider = ({ children }) => {
       if (_size(favoritesStorage) && album.favorite) {
         const newFavorites = _filter(favoritesStorage, (favorite) => favorite.id != album.id)
         await setFavoritesStorage(newFavorites)
+        setFavorites(newFavorites)
         const albumsNormalize = normalizeAlbumsEndFavorites(albums, newFavorites)
         setAlbums(albumsNormalize)
         return
@@ -61,6 +62,7 @@ export const AlbumProvider = ({ children }) => {
         album.favorite = true
         favoritesStorage.push(album)
         await setFavoritesStorage(favoritesStorage)
+        setFavorites(favoritesStorage)
         const albumsNormalize = normalizeAlbumsEndFavorites(albums, favoritesStorage)
         setAlbums(albumsNormalize)
         return
@@ -68,6 +70,7 @@ export const AlbumProvider = ({ children }) => {
 
       album.favorite = true
       await setFavoritesStorage([album])
+      setFavorites([album])
       const albumsNormalize = normalizeAlbumsEndFavorites(albums, [album])
       setAlbums(albumsNormalize)
 
